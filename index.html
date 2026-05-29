@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanathi Krishnamoorthi — Creative Director & Motion Designer</title>
+<meta name="description" content="Vanathi Krishnamoorthi — Graphic Designer, Video Editor, Motion Graphics, Branding & Digital Marketing Specialist based in Tamil Nadu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050508;
+  --bg2: #080810;
+  --surface: rgba(255,255,255,0.03);
+  --surface2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --purple: #8B5CF6;
+  --purple2: #A78BFA;
+  --blue: #3B82F6;
+  --blue2: #60A5FA;
+  --cyan: #06B6D4;
+  --pink: #EC4899;
+  --text: #F8F8FF;
+  --text2: rgba(248,248,255,0.6);
+  --text3: rgba(248,248,255,0.35);
+  --glow-purple: rgba(139,92,246,0.3);
+  --glow-blue: rgba(59,130,246,0.25);
+  --ff-display: 'Syne', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+  --ff-mono: 'Space Grotesk', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--purple);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.1s ease;
+  mix-blend-mode: screen;
+}
+.cursor-trail {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(139,92,246,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.18s ease;
+  mix-blend-mode: screen;
+}
+
+/* LOADER */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-logo {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--purple), var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  animation: loader-pulse 1.2s ease-in-out infinite;
+}
+.loader-bar {
+  width: 200px; height: 1px;
+  background: var(--border2);
+  position: relative; overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  position: absolute; left: -100%; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--blue), transparent);
+  animation: loader-scan 1.5s ease-in-out infinite;
+}
+@keyframes loader-pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+@keyframes loader-scan { 0%{left:-100%} 100%{left:100%} }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(5,5,8,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+}
+.nav-logo {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--purple2), var(--blue2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--purple);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.nav-cta:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: white;
+  box-shadow: 0 0 24px var(--glow-purple);
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
+
+/* SECTIONS */
+section { position: relative; }
+
+/* ======================== HERO ======================== */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 48px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 20% 50%, rgba(139,92,246,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 60% at 80% 20%, rgba(59,130,246,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 40% 40% at 60% 80%, rgba(6,182,212,0.08) 0%, transparent 40%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1400px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  padding-top: 80px;
+}
+
+.hero-left { display: flex; flex-direction: column; gap: 28px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  width: fit-content;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: blink 1.5s ease infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title .line1 { display: block; }
+.hero-title .line2 { display: block; }
+.hero-title .line3 {
+  display: block;
+  background: linear-gradient(135deg, var(--purple2) 0%, var(--blue2) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite, fadeUp 0.8s 0.2s ease both;
+}
+@keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+.hero-roles {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-role {
+  padding: 6px 14px;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  color: var(--text2);
+  letter-spacing: 0.06em;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text2);
+  max-width: 480px;
+  line-height: 1.7;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.btn-primary {
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(139,92,246,0.3);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(139,92,246,0.4); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-secondary {
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--purple);
+  color: var(--purple2);
+  background: rgba(139,92,246,0.06);
+}
+
+.hero-right {
+  display: flex; justify-content: center; align-items: center;
+  position: relative;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-img-wrap {
+  position: relative;
+  width: 420px; height: 520px;
+}
+
+.hero-img-glow {
+  position: absolute; inset: -40px;
+  background: radial-gradient(ellipse at center, rgba(139,92,246,0.25) 0%, transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+@keyframes pulseGlow { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+
+.hero-img-ring {
+  position: absolute; inset: -8px;
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 12px;
+  animation: ringRotate 8s linear infinite;
+}
+.hero-img-ring::before {
+  content: ''; position: absolute;
+  top: -4px; left: 50%;
+  width: 8px; height: 8px;
+  background: var(--purple);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px var(--purple);
+}
+@keyframes ringRotate { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative; z-index: 1;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.hero-img-frame {
+  position: absolute; inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, transparent 60%, rgba(5,5,8,0.8) 100%);
+  z-index: 2;
+}
+
+.hero-float-card {
+  position: absolute;
+  background: rgba(5,5,8,0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 14px 20px;
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+.hero-float-card:nth-child(3) { top: 10%; right: -40px; animation-delay: 0s; }
+.hero-float-card:nth-child(4) { bottom: 20%; left: -50px; animation-delay: 1.5s; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.float-card-label {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+.float-card-value {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple2), var(--blue2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.float-card-sub { font-size: 0.72rem; color: var(--text3); }
+
+.scroll-indicator {
+  position: absolute; bottom: 40px; left: 48px;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  animation: fadeUp 1s 0.8s ease both;
+}
+.scroll-line {
+  width: 40px; height: 1px;
+  background: var(--border2);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--purple);
+  animation: scrollAnim 2s ease-in-out infinite;
+}
+@keyframes scrollAnim { 0%{left:-100%} 100%{left:100%} }
+
+/* PARTICLES */
+.particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--purple);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFly linear infinite;
+}
+@keyframes particleFly {
+  0% { opacity: 0; transform: translateY(100vh) scale(0); }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-20px) scale(1.5); }
+}
+
+/* FADE ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ======================== SECTION COMMON ======================== */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.section-header {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 72px;
+}
+.section-label {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple2);
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before {
+  content: ''; display: block;
+  width: 32px; height: 1px;
+  background: var(--purple);
+}
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.section-title .accent {
+  background: linear-gradient(135deg, var(--purple2), var(--blue2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-desc {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ======================== ABOUT ======================== */
+#about { padding: 140px 0; }
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+
+.about-text { display: flex; flex-direction: column; gap: 24px; }
+
+.about-p {
+  font-size: 1rem;
+  color: var(--text2);
+  line-height: 1.8;
+}
+.about-p strong { color: var(--text); font-weight: 500; }
+
+.about-education {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 8px;
+}
+.about-edu-icon {
+  width: 40px; height: 40px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.about-edu-label {
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.about-edu-value {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  position: relative; overflow: hidden;
+  transition: all 0.4s ease;
+}
+.stat-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(139,92,246,0.06), transparent);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.stat-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+.stat-card:hover::before { opacity: 1; }
+
+.stat-num {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--purple2), var(--blue2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  margin-top: 8px;
+}
+
+/* ======================== EXPERIENCE ======================== */
+#experience { padding: 140px 0; background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.03), transparent); }
+
+.timeline { position: relative; display: flex; flex-direction: column; gap: 0; }
+
+.timeline::before {
+  content: ''; position: absolute;
+  left: 24px; top: 12px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--purple), var(--blue), transparent);
+}
+
+.timeline-item {
+  display: grid; grid-template-columns: 64px 1fr;
+  gap: 32px;
+  padding-bottom: 60px;
+  position: relative;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 4px;
+}
+.timeline-node {
+  width: 12px; height: 12px;
+  background: var(--purple);
+  border-radius: 50%;
+  box-shadow: 0 0 16px var(--purple), 0 0 32px rgba(139,92,246,0.4);
+  position: relative; flex-shrink: 0;
+  animation: nodePulse 2s ease-in-out infinite;
+}
+.timeline-node::after {
+  content: ''; position: absolute;
+  inset: -4px;
+  border: 1px solid rgba(139,92,246,0.4);
+  border-radius: 50%;
+  animation: nodeRing 2s ease-in-out infinite;
+}
+.timeline-item:nth-child(2) .timeline-node { background: var(--blue); box-shadow: 0 0 16px var(--blue); }
+.timeline-item:nth-child(2) .timeline-node::after { border-color: rgba(59,130,246,0.4); }
+.timeline-item:nth-child(3) .timeline-node { background: var(--cyan); box-shadow: 0 0 16px var(--cyan); }
+.timeline-item:nth-child(3) .timeline-node::after { border-color: rgba(6,182,212,0.4); }
+@keyframes nodePulse { 0%,100%{box-shadow:0 0 12px currentColor} 50%{box-shadow:0 0 24px currentColor, 0 0 40px currentColor} }
+@keyframes nodeRing { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0} }
+
+.timeline-content {
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+}
+.timeline-content::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple), transparent);
+}
+.timeline-item:nth-child(2) .timeline-content::before { background: linear-gradient(to bottom, var(--blue), transparent); }
+.timeline-item:nth-child(3) .timeline-content::before { background: linear-gradient(to bottom, var(--cyan), transparent); }
+.timeline-content:hover { border-color: var(--border2); transform: translateX(4px); }
+
+.timeline-period {
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple2);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.timeline-period.active::before {
+  content: ''; display: block;
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: blink 1.5s ease infinite;
+}
+.timeline-company {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.timeline-role {
+  font-family: var(--ff-mono);
+  font-size: 0.78rem;
+  color: var(--blue2);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.timeline-desc {
+  font-size: 0.92rem;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* ======================== SKILLS ======================== */
+#skills { padding: 140px 0; }
+
+.skills-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+  cursor: default;
+}
+.skill-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(139,92,246,0.08), transparent 60%);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.skill-card:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+.skill-card:hover::after { opacity: 1; }
+
+.skill-icon {
+  width: 44px; height: 44px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.skill-card:hover .skill-icon {
+  background: rgba(139,92,246,0.2);
+  box-shadow: 0 0 20px rgba(139,92,246,0.3);
+}
+.skill-name {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+}
+.skill-bar-wrap {
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--blue));
+  border-radius: 2px;
+  width: 0; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(139,92,246,0.5);
+}
+.skill-level {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: -8px;
+}
+
+/* ======================== SERVICES ======================== */
+#services { padding: 140px 0; background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.03), transparent); }
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  padding: 40px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+  group: true;
+}
+.service-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(59,130,246,0.05));
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.service-card:hover {
+  border-color: rgba(139,92,246,0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(139,92,246,0.1);
+}
+.service-card:hover::before { opacity: 1; }
+
+.service-num {
+  font-family: var(--ff-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+}
+.service-icon {
+  font-size: 2.4rem;
+  width: 64px; height: 64px;
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.4s ease;
+}
+.service-card:hover .service-icon {
+  background: rgba(139,92,246,0.15);
+  box-shadow: 0 0 30px rgba(139,92,246,0.25);
+  transform: scale(1.05);
+}
+.service-title {
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--text2);
+  line-height: 1.7;
+  flex: 1;
+}
+.service-arrow {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text3);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+.service-card:hover .service-arrow {
+  border-color: var(--purple);
+  color: var(--purple2);
+  background: rgba(139,92,246,0.1);
+  transform: translate(4px, -4px);
+}
+
+/* ======================== PORTFOLIO ======================== */
+#portfolio { padding: 140px 0; }
+
+.portfolio-filters {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text3);
+  border-radius: 100px;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--purple);
+  color: var(--purple2);
+  background: rgba(139,92,246,0.08);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.portfolio-item-wide { grid-column: span 2; }
+
+.portfolio-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  group: true;
+}
+.portfolio-item-wide .portfolio-card { aspect-ratio: 16/7; }
+
+.portfolio-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.85);
+}
+.portfolio-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
+
+.portfolio-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(5,5,8,0.9) 0%, transparent 50%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 24px;
+  transform: translateY(8px);
+  transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-overlay { transform: translateY(0); }
+
+.portfolio-tag {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple2);
+  margin-bottom: 6px;
+}
+.portfolio-name {
+  font-family: var(--ff-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.portfolio-desc {
+  font-size: 0.8rem;
+  color: var(--text2);
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s ease 0.1s;
+}
+.portfolio-card:hover .portfolio-desc { opacity: 1; transform: translateY(0); }
+
+.portfolio-view-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -60%) scale(0.8);
+  width: 56px; height: 56px;
+  background: rgba(139,92,246,0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: all 0.4s ease;
+  font-size: 1.2rem;
+}
+.portfolio-card:hover .portfolio-view-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 5000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal {
+  max-width: 900px; width: 90%;
+  max-height: 90vh;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal { transform: scale(1); }
+.modal img { width: 100%; max-height: 70vh; object-fit: contain; background: #0a0a12; }
+.modal-info { padding: 24px 28px; }
+.modal-title { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+.modal-tag { font-family: var(--ff-mono); font-size: 0.7rem; color: var(--purple2); letter-spacing: 0.1em; text-transform: uppercase; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 40px; height: 40px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.2rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+.modal-close:hover { background: rgba(139,92,246,0.3); }
+
+/* ======================== TESTIMONIALS ======================== */
+#testimonials { padding: 140px 0; background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.03), transparent); }
+
+.testimonials-track-wrap { overflow: hidden; position: relative; }
+.testimonials-track-wrap::before,
+.testimonials-track-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+}
+.testimonials-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.testimonials-track-wrap::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+.testimonials-track {
+  display: flex; gap: 24px;
+  animation: scrollTrack 30s linear infinite;
+  width: max-content;
+}
+.testimonials-track:hover { animation-play-state: paused; }
+@keyframes scrollTrack { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.testi-card {
+  width: 360px; flex-shrink: 0;
+  padding: 32px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: border-color 0.3s ease;
+}
+.testi-card:hover { border-color: var(--border2); }
+
+.testi-stars { color: #F59E0B; font-size: 0.8rem; letter-spacing: 2px; }
+.testi-quote {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.75;
+  font-style: italic;
+}
+.testi-quote::before { content: '"'; color: var(--purple2); font-size: 1.4rem; line-height: 0; vertical-align: -4px; margin-right: 4px; }
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.testi-name { font-family: var(--ff-display); font-weight: 600; font-size: 0.9rem; }
+.testi-company { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--text3); letter-spacing: 0.06em; }
+
+/* ======================== CONTACT ======================== */
+#contact { padding: 140px 0; }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 80px; align-items: start;
+}
+
+.contact-left { display: flex; flex-direction: column; gap: 40px; }
+
+.contact-tagline {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.contact-tagline .accent {
+  background: linear-gradient(135deg, var(--purple2), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-details { display: flex; flex-direction: column; gap: 16px; }
+
+.contact-detail {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none; color: inherit;
+}
+.contact-detail:hover { border-color: var(--border2); background: var(--surface2); }
+
+.contact-detail-icon {
+  width: 40px; height: 40px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.contact-detail-label { font-family: var(--ff-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); }
+.contact-detail-value { font-size: 0.9rem; color: var(--text2); margin-top: 2px; }
+
+.contact-form {
+  display: flex; flex-direction: column; gap: 20px;
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+}
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.1), 0 0 20px rgba(139,92,246,0.1);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-textarea { min-height: 120px; }
+
+.form-submit {
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: white; border: none;
+  border-radius: 6px;
+  font-family: var(--ff-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(139,92,246,0.3);
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(139,92,246,0.4); }
+
+/* ======================== FOOTER ======================== */
+footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+
+.footer-logo {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--purple2), var(--blue2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-nav {
+  display: flex; gap: 32px; list-style: none;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  color: var(--text3);
+  text-decoration: none;
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.footer-nav a:hover { color: var(--text); }
+
+.footer-copy {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+}
+
+.scroll-top {
+  width: 44px; height: 44px;
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--text2);
+  font-size: 1rem;
+  background: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.scroll-top:hover {
+  border-color: var(--purple);
+  color: var(--purple2);
+  background: rgba(139,92,246,0.1);
+  transform: translateY(-3px);
+}
+
+/* GLOW ORBS */
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); pointer-events: none;
+  animation: orbFloat ease-in-out infinite;
+}
+@keyframes orbFloat {
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(20px,-20px) scale(1.05)}
+  66%{transform:translate(-15px,15px) scale(0.95)}
+}
+
+/* MOBILE NAV */
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(5,5,8,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 32px;
+  opacity: 0; visibility: hidden;
+  transition: all 0.4s ease;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu a {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+.mobile-menu a:hover { color: var(--purple2); }
+.mobile-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: 1px solid var(--border2);
+  color: var(--text); cursor: pointer;
+  width: 44px; height: 44px; border-radius: 50%;
+  font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; gap: 60px; padding-top: 100px; text-align: center; }
+  .hero-left { align-items: center; }
+  .hero-right { justify-content: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  
+  .section-container { padding: 0 24px; }
+  #hero { padding: 0 24px; }
+  .hero-img-wrap { width: 300px; height: 370px; }
+  .hero-float-card:nth-child(3) { right: 0; }
+  .hero-float-card:nth-child(4) { left: -10px; }
+  .scroll-indicator { left: 24px; }
+  
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-item-wide { grid-column: span 1; }
+  .portfolio-item-wide .portfolio-card { aspect-ratio: 4/3; }
+  
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-nav { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">VK</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">VK.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#experience" onclick="closeMobileMenu()">Experience</a>
+  <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+  <a href="#portfolio" onclick="closeMobileMenu()">Work</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- ======================== HERO ======================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Gradient orbs -->
+  <div class="orb" style="width:600px;height:600px;background:rgba(139,92,246,0.07);top:-200px;right:-100px;animation-duration:12s;"></div>
+  <div class="orb" style="width:400px;height:400px;background:rgba(59,130,246,0.06);bottom:100px;left:200px;animation-duration:9s;animation-delay:3s;"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Available for Creative Projects
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line1">Crafting Cinematic</span>
+        <span class="line2">Visual Experiences</span>
+        <span class="line3">Through Design, Motion</span>
+        <span class="line1">&amp; Branding.</span>
+      </h1>
+
+      <div class="hero-roles">
+        <span class="hero-role">Graphic Designer</span>
+        <span class="hero-role">Video Editor</span>
+        <span class="hero-role">Motion Graphics</span>
+        <span class="hero-role">Digital Marketing</span>
+        <span class="hero-role">Team Lead</span>
+      </div>
+
+      <p class="hero-desc">
+        Vanathi Krishnamoorthi — a multidisciplinary creative professional crafting premium visual identities, cinematic motion graphics, and powerful brand narratives.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn-primary"><span>View Portfolio</span></a>
+        <a href="#contact" class="btn-secondary">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <div class="hero-img-glow"></div>
+        <div class="hero-img-ring"></div>
+        <img src="https://i.postimg.cc/50VMBtfP/Chat-GPT-Image-May-20-2026-04-45-18-PM.png" alt="Vanathi Krishnamoorthi" class="hero-img">
+        <div class="hero-img-frame"></div>
+        <div class="hero-float-card">
+          <div class="float-card-label">Experience</div>
+          <div class="float-card-value">2+</div>
+          <div class="float-card-sub">Years in Design</div>
+        </div>
+        <div class="hero-float-card">
+          <div class="float-card-label">Projects</div>
+          <div class="float-card-value">50+</div>
+          <div class="float-card-sub">Completed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ======================== ABOUT ======================== -->
+<section id="about">
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-header" style="margin-bottom:32px;">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">A Creative <span class="accent">Visionary</span><br>Driven by Story</h2>
+        </div>
+
+        <p class="about-p">
+          I'm <strong>Vanathi Krishnamoorthi</strong> — a multidisciplinary creative professional passionate about transforming ideas into cinematic visual experiences. My work spans graphic design, video editing, motion graphics, branding, and digital marketing.
+        </p>
+        <p class="about-p">
+          I believe that great design isn't just about aesthetics — it's about <strong>storytelling</strong>. Every brand has a unique story, and I use design thinking, motion craft, and visual strategy to communicate that story with precision and power.
+        </p>
+        <p class="about-p">
+          From building bold brand identities for local businesses to producing high-impact content for international clients in Switzerland, Poland, and Germany, I bring a global perspective with a deeply personal creative touch.
+        </p>
+        <p class="about-p">
+          Currently leading creative teams at <strong>CloudFlake InfoTech Pvt Ltd</strong>, I bridge the gap between creativity and strategy — delivering experiences that inspire, engage, and convert.
+        </p>
+
+        <div class="about-education">
+          <div class="about-edu-icon">🎓</div>
+          <div>
+            <div class="about-edu-label">Education</div>
+            <div class="about-edu-value">Bachelor of Design</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats reveal">
+        <div class="stat-card">
+          <div class="stat-num counter" data-target="2">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num counter" data-target="50">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num counter" data-target="20">0</div>
+          <div class="stat-label">Brands Worked With</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num counter" data-target="12">0</div>
+          <div class="stat-label">Creative Skills</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== EXPERIENCE ======================== -->
+<section id="experience">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <span class="section-label">My Journey</span>
+      <h2 class="section-title">2+ Years <span class="accent">Experience</span><br>Journey</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><div class="timeline-node"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-period active">July 2025 – Present</div>
+          <div class="timeline-company">CloudFlake InfoTech Pvt Ltd</div>
+          <div class="timeline-role">Graphic Designer • Video Editor • Team Lead</div>
+          <p class="timeline-desc">Leading creative projects, managing branding strategies, producing motion graphics, and coordinating creative teams to deliver impactful digital experiences. Overseeing end-to-end creative direction for Tamil Nadu operations and international clients.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><div class="timeline-node"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-period">Oct 2024 – Jun 2025</div>
+          <div class="timeline-company">RRC Technologies</div>
+          <div class="timeline-role">Graphic Designer • Video Editor</div>
+          <p class="timeline-desc">Worked on social media creatives, promotional videos, branding visuals, and digital marketing campaigns. Developed a strong foundation in production-grade design and video editing workflows.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><div class="timeline-node"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-period">Aug 2024 – Oct 2024</div>
+          <div class="timeline-company">Upro360 Innovations LLP</div>
+          <div class="timeline-role">Graphic Design Intern</div>
+          <p class="timeline-desc">Assisted branding projects, social media design, and digital content creation while learning professional creative workflows. Built core skills in design thinking and brand communication.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SKILLS ======================== -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <span class="section-label">Expertise</span>
+      <h2 class="section-title">Creative <span class="accent">Expertise</span></h2>
+      <p class="section-desc">A combination of creativity, strategy, motion, and branding expertise focused on delivering visually compelling digital experiences.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal" data-skill="95">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">Adobe Photoshop</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="95"></div></div>
+        <div class="skill-level">Expert</div>
+      </div>
+      <div class="skill-card reveal" data-skill="90">
+        <div class="skill-icon">🎬</div>
+        <div class="skill-name">Adobe After Effects</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="92">
+        <div class="skill-icon">🎥</div>
+        <div class="skill-name">Adobe Premiere Pro</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
+        <div class="skill-level">Expert</div>
+      </div>
+      <div class="skill-card reveal" data-skill="88">
+        <div class="skill-icon">⬡</div>
+        <div class="skill-name">Figma</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="95">
+        <div class="skill-icon">✏️</div>
+        <div class="skill-name">Graphic Design</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="95"></div></div>
+        <div class="skill-level">Expert</div>
+      </div>
+      <div class="skill-card reveal" data-skill="92">
+        <div class="skill-icon">🎞️</div>
+        <div class="skill-name">Video Editing</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
+        <div class="skill-level">Expert</div>
+      </div>
+      <div class="skill-card reveal" data-skill="88">
+        <div class="skill-icon">🏷️</div>
+        <div class="skill-name">Branding Design</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="85">
+        <div class="skill-icon">🔤</div>
+        <div class="skill-name">Typography</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="80">
+        <div class="skill-icon">📣</div>
+        <div class="skill-name">Digital Marketing</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
+        <div class="skill-level">Proficient</div>
+      </div>
+      <div class="skill-card reveal" data-skill="85">
+        <div class="skill-icon">👥</div>
+        <div class="skill-name">Team Management</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="88">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">Colour Theory</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
+        <div class="skill-level">Advanced</div>
+      </div>
+      <div class="skill-card reveal" data-skill="70">
+        <div class="skill-icon">🔍</div>
+        <div class="skill-name">SEO (Basic)</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div>
+        <div class="skill-level">Intermediate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SERVICES ======================== -->
+<section id="services">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <span class="section-label">What I Do</span>
+      <h2 class="section-title">Creative <span class="accent">Services</span></h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-icon">🎨</div>
+        <div class="service-title">Graphic Design</div>
+        <p class="service-desc">Modern visual design solutions crafted for digital and print platforms. From social media creatives to large-format print — every pixel purposeful.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-icon">🎬</div>
+        <div class="service-title">Video Editing</div>
+        <p class="service-desc">Cinematic editing with storytelling, transitions, and motion effects. Turning raw footage into emotionally resonant visual narratives.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-icon">✨</div>
+        <div class="service-title">Motion Graphics</div>
+        <p class="service-desc">Creative animated visuals designed for modern brands. Bringing logos, intros, and concepts to life through fluid, expressive motion design.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <div class="service-icon">🏷️</div>
+        <div class="service-title">Branding</div>
+        <p class="service-desc">Strategic branding focused on identity and audience connection. Building visual systems that communicate values and inspire recognition.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <div class="service-icon">📱</div>
+        <div class="service-title">Social Media Creatives</div>
+        <p class="service-desc">High-performing social media visuals for engagement and growth. Scroll-stopping content designed to capture attention and drive action.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <div class="service-icon">🎯</div>
+        <div class="service-title">Creative Team Leadership</div>
+        <p class="service-desc">Managing creative direction, workflows, and visual strategies. Empowering teams to deliver consistent, high-quality creative output at scale.</p>
+        <div class="service-arrow">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PORTFOLIO ======================== -->
+<section id="portfolio">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title">Creative <span class="accent">Portfolio</span></h2>
+      <p class="section-desc">A curated selection of branding, design, motion, and international creative projects.</p>
+    </div>
+
+    <div class="portfolio-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="case-study">Case Study</button>
+      <button class="filter-btn" data-filter="international">International</button>
+    </div>
+
+    <div class="portfolio-grid reveal">
+      <!-- Case Study - wide -->
+      <div class="portfolio-item portfolio-item-wide" data-cat="case-study">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/DZ29FtN1/2.png','Case Study — Creative Showcase','Case Study / Branding')">
+          <img src="https://i.postimg.cc/DZ29FtN1/2.png" alt="Case Study" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Case Study</div>
+            <div class="portfolio-name">Creative Showcase</div>
+            <div class="portfolio-desc">Comprehensive brand design case study showcasing strategy and execution.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Logo Works -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/1XLgLczC/model-(4).png','Logo Works — Brand Identity','Branding / Logo Design')">
+          <img src="https://i.postimg.cc/1XLgLczC/model-(4).png" alt="Logo Works" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Logo Design</div>
+            <div class="portfolio-name">Logo Works</div>
+            <div class="portfolio-desc">Premium logo and identity design systems.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/L5rqrBs0/model-(3).png','Logo Works II','Branding / Logo Design')">
+          <img src="https://i.postimg.cc/L5rqrBs0/model-(3).png" alt="Logo Works" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Logo Design</div>
+            <div class="portfolio-name">Brand Identity</div>
+            <div class="portfolio-desc">Crafting identities that resonate and endure.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/j2GWGQjF/model-(2).png','Logo Works III','Branding')">
+          <img src="https://i.postimg.cc/j2GWGQjF/model-(2).png" alt="Logo Works" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Branding</div>
+            <div class="portfolio-name">Visual Identity</div>
+            <div class="portfolio-desc">Strategic visual identity for modern brands.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Organica Aura -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/tgf6Hj7y/model-(15).png','Organica Aura','Branding / Packaging')">
+          <img src="https://i.postimg.cc/tgf6Hj7y/model-(15).png" alt="Organica Aura" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Branding</div>
+            <div class="portfolio-name">Organica Aura</div>
+            <div class="portfolio-desc">Organic lifestyle brand identity design.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Tek Partners -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/rpJ8SCXN/model(16).png','Tek Partners','B2B Branding')">
+          <img src="https://i.postimg.cc/rpJ8SCXN/model(16).png" alt="Tek Partners" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">B2B Branding</div>
+            <div class="portfolio-name">Tek Partners</div>
+            <div class="portfolio-desc">Tech company visual identity and design system.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Upro360 -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/j2GKsMP6/model-(13).png','Upro360 Innovations','Tech Startup Branding')">
+          <img src="https://i.postimg.cc/j2GKsMP6/model-(13).png" alt="Upro360" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Startup Branding</div>
+            <div class="portfolio-name">Upro360 Innovations</div>
+            <div class="portfolio-desc">Complete brand strategy for a digital innovations company.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- KA Ghee -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/GmPrCJ2F/model-(12).png','KA Ghee','Product Branding')">
+          <img src="https://i.postimg.cc/GmPrCJ2F/model-(12).png" alt="KA Ghee" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Product Branding</div>
+            <div class="portfolio-name">KA Ghee</div>
+            <div class="portfolio-desc">Traditional product brand with premium modern identity.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Virukshalaya -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/wxt1dZd9/model-(11).png','Virukshalaya Play School','Education Branding')">
+          <img src="https://i.postimg.cc/wxt1dZd9/model-(11).png" alt="Virukshalaya" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Education</div>
+            <div class="portfolio-name">Virukshalaya Play School</div>
+            <div class="portfolio-desc">Playful, nurturing brand identity for early education.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- BIMS Abacus -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/QC5NWLXy/model-(10).png','BIMS Abacus','Education Branding')">
+          <img src="https://i.postimg.cc/QC5NWLXy/model-(10).png" alt="BIMS Abacus" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Education Branding</div>
+            <div class="portfolio-name">BIMS Abacus</div>
+            <div class="portfolio-desc">Brand identity for an abacus learning institution.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Arafath -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/cHt0Vqth/model-(9).png','Arafath','Brand Design')">
+          <img src="https://i.postimg.cc/cHt0Vqth/model-(9).png" alt="Arafath" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Brand Design</div>
+            <div class="portfolio-name">Arafath</div>
+            <div class="portfolio-desc">Elegant visual identity with strong brand presence.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- CloudFlake - wide -->
+      <div class="portfolio-item portfolio-item-wide" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/c445HRXr/model-(7).png','CloudFlake — Tamil Nadu','Corporate Branding')">
+          <img src="https://i.postimg.cc/c445HRXr/model-(7).png" alt="CloudFlake" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Corporate Branding</div>
+            <div class="portfolio-name">CloudFlake InfoTech</div>
+            <div class="portfolio-desc">Comprehensive brand design for a tech company — identity, collateral and digital presence.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Arunraj Furniture -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/4d6FKwDt/model-(8).png','Arunraj Furniture & Electronics','Retail Branding')">
+          <img src="https://i.postimg.cc/4d6FKwDt/model-(8).png" alt="Arunraj" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Retail Branding</div>
+            <div class="portfolio-name">Arunraj Furniture</div>
+            <div class="portfolio-desc">Modern retail brand identity for furniture and electronics.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- International -->
+      <div class="portfolio-item portfolio-item-wide" data-cat="international">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/nVD98gvj/model-17.png','International Projects — Europe','Video Editing / Motion')">
+          <img src="https://i.postimg.cc/nVD98gvj/model-17.png" alt="International Projects" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">International • Europe</div>
+            <div class="portfolio-name">Swiss LA IT Solutions · Laufental Logistics · LA Global</div>
+            <div class="portfolio-desc">Video editing and motion content for clients in Switzerland, Poland, and Germany.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- SVM School -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/qv7fPf9P/model-(5).png','SVM School','Education')">
+          <img src="https://i.postimg.cc/qv7fPf9P/model-(5).png" alt="SVM School" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Education</div>
+            <div class="portfolio-name">SVM School</div>
+            <div class="portfolio-desc">School brand identity — trust, growth, excellence.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+
+      <!-- Vendhan -->
+      <div class="portfolio-item" data-cat="branding">
+        <div class="portfolio-card" onclick="openModal('https://i.postimg.cc/2jvCGDDZ/model-(6).png','Vendhan','Brand Design')">
+          <img src="https://i.postimg.cc/2jvCGDDZ/model-(6).png" alt="Vendhan" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Brand Design</div>
+            <div class="portfolio-name">Vendhan</div>
+            <div class="portfolio-desc">Brand identity rooted in culture and clarity.</div>
+          </div>
+          <div class="portfolio-view-btn">↗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="" alt="">
+    <div class="modal-info">
+      <div class="modal-tag" id="modalTag"></div>
+      <div class="modal-title" id="modalTitle"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== TESTIMONIALS ======================== -->
+<section id="testimonials">
+  <div class="section-container">
+    <div class="section-header reveal" style="text-align:center; align-items:center;">
+      <span class="section-label">Client Words</span>
+      <h2 class="section-title">What Clients <span class="accent">Say</span></h2>
+    </div>
+  </div>
+
+  <div class="testimonials-track-wrap reveal">
+    <div class="testimonials-track" id="testiTrack">
+      <!-- Cards duplicated for infinite loop -->
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Vanathi's design work for our brand was exceptional. The logo and identity system she created perfectly captured our vision and elevated our entire brand presence.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rajesh Kumar</div>
+            <div class="testi-company">KA Ghee Products</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The video editing and motion graphics Vanathi produced for our Swiss operations were world-class. We couldn't have asked for a more professional creative partner.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Laurent Müller</div>
+            <div class="testi-company">Swiss LA IT Solutions, Switzerland</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Our school's new brand identity has received incredible feedback from parents and teachers. Vanathi understood our values perfectly and brought them to life beautifully.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya Sundaram</div>
+            <div class="testi-company">Virukshalaya Play School</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Working with Vanathi was a transformative experience. Her creativity, professionalism, and attention to detail resulted in branding that truly stands out in our market.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Arun Selvam</div>
+            <div class="testi-company">Arunraj Furniture & Electronics</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The promotional videos Vanathi edited for our logistics company were exactly what we needed. She captured our brand tone with remarkable precision and speed.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">H</div>
+          <div>
+            <div class="testi-name">Hans Weber</div>
+            <div class="testi-company">Laufental Logistics, Switzerland</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Vanathi led our creative team with vision and clarity. Her ability to manage both creative direction and team coordination is rare and incredibly valuable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">V</div>
+          <div>
+            <div class="testi-name">Vikram Nair</div>
+            <div class="testi-company">CloudFlake InfoTech</div>
+          </div>
+        </div>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Vanathi's design work for our brand was exceptional. The logo and identity system she created perfectly captured our vision and elevated our entire brand presence.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rajesh Kumar</div>
+            <div class="testi-company">KA Ghee Products</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The video editing and motion graphics Vanathi produced for our Swiss operations were world-class. We couldn't have asked for a more professional creative partner.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Laurent Müller</div>
+            <div class="testi-company">Swiss LA IT Solutions, Switzerland</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Our school's new brand identity has received incredible feedback from parents and teachers. Vanathi understood our values perfectly and brought them to life beautifully.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya Sundaram</div>
+            <div class="testi-company">Virukshalaya Play School</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Working with Vanathi was a transformative experience. Her creativity, professionalism, and attention to detail resulted in branding that truly stands out in our market.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Arun Selvam</div>
+            <div class="testi-company">Arunraj Furniture & Electronics</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">The promotional videos Vanathi edited for our logistics company were exactly what we needed. She captured our brand tone with remarkable precision and speed.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">H</div>
+          <div>
+            <div class="testi-name">Hans Weber</div>
+            <div class="testi-company">Laufental Logistics, Switzerland</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Vanathi led our creative team with vision and clarity. Her ability to manage both creative direction and team coordination is rare and incredibly valuable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">V</div>
+          <div>
+            <div class="testi-name">Vikram Nair</div>
+            <div class="testi-company">CloudFlake InfoTech</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CONTACT ======================== -->
+<section id="contact">
+  <div class="section-container">
+    <div class="section-header reveal" style="text-align:center; align-items:center;">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's Create Something<br><span class="accent">Exceptional Together.</span></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p style="color:var(--text2);line-height:1.7;">
+          Whether you're looking to build a brand, produce cinematic content, or need a creative partner for your next big idea — I'm ready to bring your vision to life.
+        </p>
+
+        <div class="contact-details">
+          <a href="mailto:vanathi3097@gmail.com" class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">vanathi3097@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+919361475343" class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value">+91 93614 75343</div>
+            </div>
+          </a>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Location</div>
+              <div class="contact-detail-value">Pattukkottai, Thanjavur, Tamil Nadu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" class="form-input" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-input" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" class="form-input" placeholder="Project inquiry, Collaboration...">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(this)">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Vanathi K.</div>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Vanathi Krishnamoorthi. All rights reserved.</div>
+    <a href="#hero" class="scroll-top">↑</a>
+  </div>
+</footer>
+
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 1800);
+});
+
+// CURSOR
+const cursor = document.getElementById('cursor');
+const trail = document.getElementById('cursorTrail');
+let mx = 0, my = 0, tx = 0, ty = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 6 + 'px';
+  cursor.style.top = my - 6 + 'px';
+});
+
+function animTrail() {
+  tx += (mx - tx - 18) * 0.15;
+  ty += (my - ty - 18) * 0.15;
+  trail.style.left = tx + 'px';
+  trail.style.top = ty + 'px';
+  requestAnimationFrame(animTrail);
+}
+animTrail();
+
+document.querySelectorAll('a, button, .portfolio-card, .service-card, .skill-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'scale(2.5)';
+    trail.style.transform = 'scale(1.5)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'scale(1)';
+    trail.style.transform = 'scale(1)';
+  });
+});
+
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// MOBILE MENU
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', closeMobileMenu);
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// PARTICLES
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    p.style.background = Math.random() > 0.5 ? 'var(--purple)' : 'var(--blue)';
+    p.style.width = (Math.random() * 3 + 1) + 'px';
+    p.style.height = p.style.width;
+    container.appendChild(p);
+  }
+}
+createParticles();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.transitionDelay = (i % 4) * 0.1 + 's';
+      entry.target.classList.add('visible');
+      
+      // Skill bars
+      entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width + '%';
+        }, 400);
+      });
+
+      // Counters
+      entry.target.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const increment = target / 40;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = Math.floor(current) + (target > 10 ? '+' : '+');
+        }, 40);
+      });
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// SKILL CARD MOUSE GLOW
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const mx = ((e.clientX - rect.left) / rect.width) * 100;
+    const my = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mx', mx + '%');
+    card.style.setProperty('--my', my + '%');
+  });
+});
+
+// PORTFOLIO FILTER
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      const show = filter === 'all' || item.dataset.cat === filter;
+      item.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+
+// MODAL
+function openModal(img, title, tag) {
+  document.getElementById('modalImg').src = img;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalTag').textContent = tag;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay') || e.currentTarget.classList.contains('modal-close')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal({ target: document.getElementById('modalOverlay') }); });
+
+// CONTACT FORM
+function handleSubmit(btn) {
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+  }, 1500);
+}
+</script>
+</body>
+</html>
